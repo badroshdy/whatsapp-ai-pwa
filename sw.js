@@ -1,10 +1,12 @@
-const CACHE = 'wa-ai-v3';
+const CACHE = 'wa-ai-v4';
 const FILES = [
   '/whatsapp-ai-pwa/',
   '/whatsapp-ai-pwa/index.html',
   '/whatsapp-ai-pwa/key.html',
+  '/whatsapp-ai-pwa/sources.html',
   '/whatsapp-ai-pwa/app.js',
   '/whatsapp-ai-pwa/key.js',
+  '/whatsapp-ai-pwa/sources.js',
   '/whatsapp-ai-pwa/style.css',
   '/whatsapp-ai-pwa/manifest.json'
 ];

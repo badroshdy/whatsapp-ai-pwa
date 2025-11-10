@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+  <meta name="description" content="Manage your article sources">
+  <meta name="theme-color" content="#075e54">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Manage Sources - WhatsApp AI Helper</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <section>
+      <h1>📚 Manage Article Sources</h1>
+      <p style="margin-bottom: 1.5rem; text-align: center; color: #666;">Customize the sources for suggested articles. Changes are saved locally.</p>
+
+      <div id="topicTabs" style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+        <button class="tab-btn active" onclick="switchTopic('cybersecurity')">Cybersecurity</button>
+        <button class="tab-btn" onclick="switchTopic('future-tech')">Future Tech</button>
+        <button class="tab-btn" onclick="switchTopic('energy')">Energy</button>
+        <button class="tab-btn" onclick="switchTopic('future-all')">Future of Everything</button>
+      </div>
+
+      <div id="currentTopic" style="margin-bottom: 1rem;">
+        <h2 id="topicTitle" style="color: #075e54; font-size: 1.2rem; margin-bottom: 1rem;"></h2>
+        <div id="sourcesList"></div>
+      </div>
+
+      <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid #e0e0e0;">
+        <h3 style="color: #075e54; font-size: 1.1rem; margin-bottom: 1rem;">Add New Source</h3>
+        <input id="newSourceName" type="text" placeholder="Source name (e.g., TechCrunch)" style="margin-bottom: 0.75rem;">
+        <input id="newSourceUrl" type="url" placeholder="https://example.com">
+        <button onclick="addSource()" style="margin-top: 0.75rem;">Add Source</button>
+      </div>
+
+      <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <button onclick="resetToDefaults()" style="background: linear-gradient(135deg, #d32f2f 0%, #f44336 100%); flex: 1; min-width: 200px;">Reset to Defaults</button>
+        <button onclick="exportSources()" style="background: linear-gradient(135deg, #1976d2 0%, #2196f3 100%); flex: 1; min-width: 200px;">Export Sources</button>
+      </div>
+
+      <p style="margin-top: 1.5rem; text-align: center;">
+        <a href="index.html">← Back to app</a>
+      </p>
+    </section>
+  </div>
+  <script src="sources.js"></script>
+</body>
+</html>

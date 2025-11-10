@@ -200,6 +200,31 @@ button:disabled {
   transform: none;
 }
 
+/* Tab buttons for source management */
+.tab-btn {
+  flex: 1;
+  min-width: 120px;
+  width: auto;
+  padding: 0.625rem 1rem;
+  margin: 0;
+  background: #e0e0e0;
+  color: #1a1a1a;
+  box-shadow: none;
+  font-size: 0.9rem;
+}
+
+.tab-btn:hover {
+  background: #d0d0d0;
+  transform: none;
+  box-shadow: none;
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, #075e54 0%, #128c7e 100%);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(7, 94, 84, 0.2);
+}
+
 /* ========== Output Display ========== */
 pre {
   background: #f8f9fa;
@@ -374,5 +399,19 @@ section {
 
   label {
     color: #e0e0e0;
+  }
+
+  .tab-btn {
+    background: #404040;
+    color: #e0e0e0;
+  }
+
+  .tab-btn:hover {
+    background: #505050;
+  }
+
+  .tab-btn.active {
+    background: linear-gradient(135deg, #075e54 0%, #128c7e 100%);
+    color: #ffffff;
   }
 }

@@ -97,7 +97,7 @@ Emoji allowed. Keep friendly & concise.`;
 }
 
 // ---------- feature 3 ----------
-const RSS_FEEDS = {
+const DEFAULT_RSS_FEEDS = {
   'cybersecurity': {
     title: 'Cybersecurity & Digital Trust',
     sources: [
@@ -139,6 +139,18 @@ const RSS_FEEDS = {
   }
 };
 
+function getRSSFeeds(){
+  const stored = localStorage.getItem('whatsappAI_sources');
+  if(stored){
+    try{
+      return JSON.parse(stored);
+    }catch(e){
+      return DEFAULT_RSS_FEEDS;
+    }
+  }
+  return DEFAULT_RSS_FEEDS;
+}
+
 async function suggestArticle(){
   const topic = document.getElementById('topic').value;
   if(!topic){ alert('Please select a topic first'); return; }
@@ -150,6 +162,7 @@ async function suggestArticle(){
   output.textContent = 'Searching for latest articles...';
 
   try{
+    const RSS_FEEDS = getRSSFeeds();
     const topicData = RSS_FEEDS[topic];
     const sourcesList = topicData.sources.join('\n');
 
