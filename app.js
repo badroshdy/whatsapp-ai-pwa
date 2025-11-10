@@ -1,14 +1,3 @@
-// nicer status line
-const ks = document.getElementById('ks');
-ks.textContent = haveKey() ? 'Stored locally ✓' : 'Not set – tap 🔑 to add';
-
-// auto-hide output when user starts typing
-['chat','url'].forEach(id=>{
-    document.getElementById(id).addEventListener('focus',()=>{
-        document.getElementById(id==='chat'?'sumOut':'artOut').textContent='';
-    });
-});
-
 // ---------- helpers ----------
 const LS_KEY = 'whatsappAI_key';
 function haveKey(){ return !!localStorage.getItem(LS_KEY); }

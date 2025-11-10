@@ -6,14 +6,13 @@
   <title>Save your key</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="exec">
-  <header class="top-bar"><h2>API Key</h2></header>
-  <main class="container key-pad">
-    <p>Your key stays <strong>only</strong> in this browser.</p>
-    <input id="k" type="password" placeholder="sk-xxxxxxxxxxxxxxxxxx">
-    <button class="primary" onclick="save()">Save</button>
-    <p id="msg"></p>
-    <a href="index.html">← back</a>
-  </main>
+<body>
+  <h2>🔑 Save your OpenAI key locally</h2>
+  <p>It stays <strong>only</strong> in this browser.</p>
+  <input id="k" type="password" placeholder="sk-xxxxxxxxxxxxxxxxxx">
+  <button onclick="save()">Save</button>
+  <p id="msg"></p>
+  <a href="index.html">← back to app</a>
+  <script src="key.js"></script>
 </body>
 </html>
