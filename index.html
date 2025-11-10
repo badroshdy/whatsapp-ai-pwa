@@ -33,6 +33,20 @@
       <button onclick="articleToPost()" aria-label="Create WhatsApp post from article">Create WhatsApp post</button>
       <pre id="artOut" role="region" aria-live="polite"></pre>
     </section>
+
+    <section id="suggested">
+      <h2>3️⃣ Suggested Articles</h2>
+      <label for="topic" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Select Topic:</label>
+      <select id="topic" aria-label="Select article topic">
+        <option value="">Choose a topic...</option>
+        <option value="cybersecurity">Cybersecurity &amp; Digital Trust</option>
+        <option value="future-tech">Future Technology &amp; Strategy</option>
+        <option value="energy">Energy, Sustainability &amp; Industrial Innovation</option>
+        <option value="future-all">Future of Everything &amp; Cross-Discipline</option>
+      </select>
+      <button onclick="suggestArticle()" aria-label="Get suggested article">Get Suggested Article</button>
+      <pre id="sugOut" role="region" aria-live="polite"></pre>
+    </section>
   </div>
 
   <script src="app.js"></script>

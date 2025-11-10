@@ -137,6 +137,36 @@ input[type="password"]:focus {
   background: #ffffff;
 }
 
+select {
+  width: 100%;
+  font-size: 1rem;
+  font-family: inherit;
+  padding: 0.875rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background: #fafafa;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23075e54' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.875rem center;
+  background-size: 1.25rem;
+  padding-right: 3rem;
+}
+
+select:focus {
+  outline: none;
+  border-color: #075e54;
+  box-shadow: 0 0 0 3px rgba(7, 94, 84, 0.1);
+  background-color: #ffffff;
+}
+
+label {
+  color: #1a1a1a;
+  font-size: 0.95rem;
+}
+
 /* ========== Buttons ========== */
 button {
   width: 100%;
@@ -245,7 +275,8 @@ a:hover {
   }
 
   input[type="url"],
-  input[type="password"] {
+  input[type="password"],
+  select {
     font-size: 16px; /* Prevents iOS zoom on focus */
   }
 
@@ -313,15 +344,21 @@ section {
 
   textarea,
   input[type="url"],
-  input[type="password"] {
+  input[type="password"],
+  select {
     background: #1a1a1a;
     color: #e0e0e0;
     border-color: #404040;
   }
 
+  select {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2325d366' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  }
+
   textarea:focus,
   input[type="url"]:focus,
-  input[type="password"]:focus {
+  input[type="password"]:focus,
+  select:focus {
     background: #2d2d2d;
     border-color: #128c7e;
   }
@@ -333,5 +370,9 @@ section {
 
   h2 {
     color: #25d366;
+  }
+
+  label {
+    color: #e0e0e0;
   }
 }
