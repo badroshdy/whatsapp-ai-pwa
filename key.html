@@ -1,18 +1,28 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Save your key</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+  <meta name="description" content="Save your OpenAI API key locally">
+  <meta name="theme-color" content="#075e54">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Save your key - WhatsApp AI Helper</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>🔑 Save your OpenAI key locally</h2>
-  <p>It stays <strong>only</strong> in this browser.</p>
-  <input id="k" type="password" placeholder="sk-xxxxxxxxxxxxxxxxxx">
-  <button onclick="save()">Save</button>
-  <p id="msg"></p>
-  <a href="index.html">← back to app</a>
+  <div class="container">
+    <section>
+      <h1>🔑 Save your OpenAI key locally</h1>
+      <p style="margin-bottom: 1rem; text-align: center; color: #666;">It stays <strong>only</strong> in this browser. Your key is never sent to any server except OpenAI.</p>
+      <input id="k" type="password" placeholder="sk-xxxxxxxxxxxxxxxxxx" aria-label="OpenAI API key input" autocomplete="off">
+      <button onclick="save()" aria-label="Save API key">Save key</button>
+      <p id="msg"></p>
+      <p style="margin-top: 1.5rem; text-align: center;">
+        <a href="index.html">← Back to app</a>
+      </p>
+    </section>
+  </div>
   <script src="key.js"></script>
 </body>
 </html>

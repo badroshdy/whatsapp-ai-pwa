@@ -38,6 +38,13 @@ async function askOpenAI(systemPrompt, userPrompt){
 async function summarise(){
   const txt = document.getElementById('chat').value;
   if(!txt){ alert('Paste messages first'); return; }
+
+  const btn = event.target;
+  const output = document.getElementById('sumOut');
+  btn.disabled = true;
+  btn.textContent = 'Processing...';
+  output.textContent = 'Analyzing messages...';
+
   const system = `You are an executive assistant. Provide:
 
 Summary (2-3 bullets, max 40 words each):
@@ -47,16 +54,29 @@ Summary (2-3 bullets, max 40 words each):
 Reply: short, polite suggested answer.`;
   try{
     const out = await askOpenAI(system, txt);
-    document.getElementById('sumOut').textContent = out;
+    output.textContent = out;
     await navigator.clipboard.writeText(out);
-    alert('Copied to clipboard!');
-  }catch(e){ alert('Error: '+e.message); }
+    alert('✅ Copied to clipboard!');
+  }catch(e){
+    output.textContent = 'Error: ' + e.message;
+    alert('Error: '+e.message);
+  }finally{
+    btn.disabled = false;
+    btn.textContent = 'Summarise & suggest reply';
+  }
 }
 
 // ---------- feature 2 ----------
 async function articleToPost(){
   const url = document.getElementById('url').value.trim();
   if(!url){ alert('Enter article URL'); return; }
+
+  const btn = event.target;
+  const output = document.getElementById('artOut');
+  btn.disabled = true;
+  btn.textContent = 'Processing...';
+  output.textContent = 'Creating WhatsApp post...';
+
   const system = `You receive a web article. Return a WhatsApp-ready message:
 - First line: 🔗 Title (max 8 words)
 - Second line: 60-word summary
@@ -64,10 +84,16 @@ async function articleToPost(){
 Emoji allowed. Keep friendly & concise.`;
   try{
     const out = await askOpenAI(system, `URL: ${url}`);
-    document.getElementById('artOut').textContent = out;
+    output.textContent = out;
     await navigator.clipboard.writeText(out);
-    alert('WhatsApp post copied!');
-  }catch(e){ alert('Error: '+e.message); }
+    alert('✅ WhatsApp post copied!');
+  }catch(e){
+    output.textContent = 'Error: ' + e.message;
+    alert('Error: '+e.message);
+  }finally{
+    btn.disabled = false;
+    btn.textContent = 'Create WhatsApp post';
+  }
 }
 
 // ---------- PWA ----------
