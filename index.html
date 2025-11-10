@@ -7,29 +7,34 @@
   <meta name="theme-color" content="#075e54">
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="style.css">
+  <link rel="apple-touch-icon" href="icons/512.png">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
 </head>
-<body>
-  <h1>📱💬 WhatsApp AI Helper</h1>
+<body class="exec">
+  <header class="top-bar">
+    <img src="icons/512.png" alt="logo" class="logo">
+    <h1>Executive Brief</h1>
+    <a href="key.html" class="key-link">🔑</a>
+  </header>
 
-  <section id="keyStatus">
-    <p>Status: <span id="ks">checking…</span></p>
-    <a href="key.html">🔑 Add / change key</a>
-  </section>
+  <main class="container">
+    <section id="keyStatus" class="card">
+      <p>API key: <span id="ks">checking…</span></p>
+    </section>
 
-  <section id="summarise">
-    <h2>1️⃣ Summarise &amp; Reply</h2>
-    <textarea id="chat" placeholder="Paste WhatsApp messages here…"></textarea>
-    <button onclick="summarise()">Summarise &amp; suggest reply</button>
-    <pre id="sumOut"></pre>
-  </section>
+    <section id="summarise" class="card">
+      <h2>1.  Summarise & Reply</h2>
+      <textarea id="chat" placeholder="Paste WhatsApp thread…"></textarea>
+      <button class="primary" onclick="summarise()">Create summary & reply</button>
+      <div id="sumOut" class="output"></div>
+    </section>
 
-  <section id="article">
-    <h2>2️⃣ Article → WhatsApp post</h2>
-    <input id="url" type="url" placeholder="https://example.com/article">
-    <button onclick="articleToPost()">Create WhatsApp post</button>
-    <pre id="artOut"></pre>
-  </section>
-
-  <script src="app.js"></script>
+    <section id="article" class="card">
+      <h2>2.  Article → WhatsApp post</h2>
+      <input id="url" type="url" placeholder="https://example.com/article">
+      <button class="primary" onclick="articleToPost()">Generate post</button>
+      <div id="artOut" class="output"></div>
+    </section>
+  </main>
 </body>
 </html>

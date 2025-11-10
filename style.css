@@ -1,8 +1,125 @@
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;margin:0;padding:1rem;background:#f2f2f7;color:#000}
-h1{color:#075e54}
-section{margin-bottom:2rem}
-textarea{width:100%;height:120px;font-size:1rem}
-input[type=url],input[type=password]{width:100%;font-size:1rem;padding:.4rem}
-button{background:#075e54;color:#fff;border:none;padding:.6rem 1rem;border-radius:4px;margin-top:.5rem}
-pre{background:#fff;padding:.8rem;border-left:4px solid #075e54;white-space:pre-wrap}
-#keyStatus{background:#fff;padding:.6rem;border-radius:6px;margin-bottom:1rem}
+/* ---- design tokens ---- */
+:root{
+    --bg:#f5f7fa;
+    --card:#ffffff;
+    --primary:#0052cc;
+    --primary-dark:#003d99;
+    --text:#222;
+    --muted:#6c757d;
+    --border:#e5e7eb;
+    --radius:10px;
+    --shadow:0 4px 12px rgba(0,0,0,.06);
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body.exec{
+    margin:0;
+    font-family:var(--font);
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.5;
+}
+
+/* ---- top bar ---- */
+.top-bar{
+    background:var(--primary);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    padding:.75rem 1.25rem;
+    box-shadow:var(--shadow);
+}
+.top-bar .logo{
+    height:28px;
+    margin-right:.5rem;
+}
+.top-bar h1{
+    flex:1;
+    font-size:1.25rem;
+    font-weight:600;
+    margin:0;
+}
+.top-bar .key-link{
+    color:#fff;
+    text-decoration:none;
+    font-size:1.2rem;
+}
+
+/* ---- layout ---- */
+.container{
+    max-width:680px;
+    margin:0 auto;
+    padding:1.5rem 1rem;
+}
+
+/* ---- cards ---- */
+.card{
+    background:var(--card);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:1.5rem;
+    margin-bottom:1.5rem;
+}
+.card h2{
+    margin:0 0 1rem;
+    font-size:1.1rem;
+    font-weight:600;
+    color:var(--primary-dark);
+}
+
+/* ---- form elements ---- */
+textarea,
+input[type=url],
+input[type=password]{
+    width:100%;
+    padding:.9rem 1rem;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    font-size:1rem;
+    resize:vertical;
+}
+textarea{
+    min-height:140px;
+}
+
+/* ---- buttons ---- */
+button{
+    cursor:pointer;
+    border:none;
+    font-size:1rem;
+    font-weight:500;
+    padding:.9rem 1.5rem;
+    border-radius:var(--radius);
+    transition:background .2s;
+}
+button.primary{
+    background:var(--primary);
+    color:#fff;
+}
+button.primary:hover{
+    background:var(--primary-dark);
+}
+
+/* ---- output ---- */
+.output{
+    margin-top:1rem;
+    padding:1rem;
+    background:#f8f9fa;
+    border-left:4px solid var(--primary);
+    white-space:pre-wrap;
+    font-size:.95rem;
+    border-radius:0 var(--radius) var(--radius) 0;
+}
+
+/* ---- key pad page ---- */
+.key-pad{
+    max-width:420px;
+    text-align:center;
+}
+.key-pad input{
+    margin:1rem 0;
+}
