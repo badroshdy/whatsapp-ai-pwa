@@ -1,0 +1,9 @@
+{
+  "name": "WhatsApp AI Helper",
+  "short_name": "WA-AI",
+  "icons": [{"src": "icons/512.png", "sizes": "512x512", "type": "image/png"}],
+  "start_url": "/whatsapp-ai-pwa/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#075e54"
+}

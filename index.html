@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>WhatsApp AI Helper</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#075e54">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>📱💬 WhatsApp AI Helper</h1>
+
+  <section id="keyStatus">
+    <p>Status: <span id="ks">checking…</span></p>
+    <a href="key.html">🔑 Add / change key</a>
+  </section>
+
+  <section id="summarise">
+    <h2>1️⃣ Summarise &amp; Reply</h2>
+    <textarea id="chat" placeholder="Paste WhatsApp messages here…"></textarea>
+    <button onclick="summarise()">Summarise &amp; suggest reply</button>
+    <pre id="sumOut"></pre>
+  </section>
+
+  <section id="article">
+    <h2>2️⃣ Article → WhatsApp post</h2>
+    <input id="url" type="url" placeholder="https://example.com/article">
+    <button onclick="articleToPost()">Create WhatsApp post</button>
+    <pre id="artOut"></pre>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
