@@ -4,9 +4,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-WhatsApp AI Helper is a Progressive Web App (PWA) that provides two main features:
+WhatsApp AI Helper is a Progressive Web App (PWA) that provides three main features:
 1. **Chat Summarization**: Summarizes WhatsApp chat messages and suggests replies
 2. **Article Conversion**: Converts web articles into WhatsApp-ready posts
+3. **Suggested Articles**: Curates recent articles from premium sources with VP-level commentary
 
 **Key architectural principle**: This is a **fully client-side application**. All OpenAI API calls are made directly from the browser using the user's personal API key stored in `localStorage`. No backend server is involved.
 
@@ -39,6 +40,11 @@ npx serve
   - Returns the assistant's response text
 - `summarise()` - Feature 1: Summarizes chat and suggests replies, auto-copies to clipboard
 - `articleToPost()` - Feature 2: Converts article URL to WhatsApp post format, auto-copies to clipboard
+- `suggestArticle()` - Feature 3: Curates articles from premium sources with VP commentary
+  - Uses `RSS_FEEDS` object containing 4 topic categories with curated source URLs
+  - Sends a "super prompt" to OpenAI with source URLs
+  - AI selects most relevant recent article and provides VP-level strategic commentary
+  - Auto-copies formatted summary to clipboard
 - Service worker registration for PWA functionality
 
 **key.js** - Simple key storage:
@@ -84,15 +90,35 @@ Update line 14 in `app.js`:
 ```javascript
 model: 'gpt-4o-mini',  // Change to 'gpt-4', 'gpt-3.5-turbo', etc.
 ```
+**Note**: Feature 3 (Suggested Articles) works best with models that have web access capabilities like `gpt-4` or newer models.
 
 ### Modifying System Prompts
-- Chat summarization prompt: `app.js:41-47`
-- Article conversion prompt: `app.js:60-64`
+- Chat summarization prompt: `app.js:48-54`
+- Article conversion prompt: `app.js:80-84`
+- Suggested articles prompt: `app.js:156-182`
+
+### Adding/Updating RSS Feed Sources for Feature 3
+The `RSS_FEEDS` object (`app.js:100-140`) contains 4 topic categories:
+- `cybersecurity`: Cybersecurity & Digital Trust sources
+- `future-tech`: Future Technology & Strategy sources
+- `energy`: Energy, Sustainability & Industrial Innovation sources
+- `future-all`: Future of Everything & Cross-Discipline sources
+
+To add/modify sources:
+```javascript
+'topic-key': {
+  title: 'Display Name',
+  sources: [
+    'Source Name: https://url.com',
+    'Another Source: https://url2.com'
+  ]
+}
+```
 
 ### Updating Cache Version
 When deploying changes, increment the cache version in `sw.js:1`:
 ```javascript
-const CACHE = 'wa-ai-v2';  // Increment version
+const CACHE = 'wa-ai-v3';  // Increment version
 ```
 This ensures users receive updated files.
 
