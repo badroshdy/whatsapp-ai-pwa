@@ -1,4 +1,4 @@
-const CACHE = 'wa-ai-v4';
+const CACHE = 'wa-ai-v5';
 const FILES = [
   '/whatsapp-ai-pwa/',
   '/whatsapp-ai-pwa/index.html',
